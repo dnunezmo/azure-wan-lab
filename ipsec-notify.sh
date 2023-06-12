@@ -11,8 +11,7 @@ case "${PLUTO_VERB}" in
         ip tunnel add "${VTI_IF}" local "${PLUTO_ME}" remote "${PLUTO_PEER}" mode vti \
             okey "${PLUTO_MARK_OUT%%/*}" ikey "${PLUTO_MARK_IN%%/*}"
         ip link set "${VTI_IF}" up
-        ip route add 10.12.0.0/16 dev "${VTI_IF}"
-        ip route add 10.11.0.0/16 dev "${VTI_IF}"
+        ip route add 10.3.0.0/16 dev "${VTI_IF}"
         sysctl -w "net.ipv4.conf.${VTI_IF}.disable_policy=1"
         ;;
     down-client)
